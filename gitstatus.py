@@ -10,6 +10,10 @@ gitbinary='git'
 
 import sys
 import os
+if os.uname() == 'lakshman-dev':
+    if 'mforge1_home' in os.getcwd():
+        print ('mforge1-not-read-in-mydev',end='')
+        sys.exit(0)
 gitsym = Popen([gitbinary, 'symbolic-ref', 'HEAD'], stdout=PIPE, stderr=PIPE)
 branch, error = gitsym.communicate()
 
